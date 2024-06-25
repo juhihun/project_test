@@ -34,6 +34,10 @@
      </div>
      </div>
 
+     <a href>상세</a> |
+     <a href>리뷰</a> |
+     <a href>QnA</a><hr>
+     <Review></Review>
      <button @click="goToList">목록</button>
 
 
@@ -42,9 +46,13 @@
      </template>
 
 <script	>
-
 import axios from "axios";
+import Review from '@/components/Review.vue'
 export	default {
+    name: 'ProdInfoView',
+    components: {
+    Review
+    },
  	data ()	{
  	 return {
  	  searchNo:"",

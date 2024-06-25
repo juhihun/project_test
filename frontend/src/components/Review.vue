@@ -1,24 +1,49 @@
 <template>
-    <div>
-        <p>커뮤니티 게시판입니다</p>
-        <p>* 본 게시판은 따뜻한 소통과 자유롭게 정보 공유를 위해 운영되는 페이지 입니다</p>
-        <p>* 욕설, 비방, 광고 등 타인에게 불쾌감을 줄 수있는 내용은 삼갛주시기 바랍니다</p>
-    </div>
-   
+    <div class ="container">
+ 		<table class ="table	table-hover">
+ 	  	 <thead>
+ 	      <tr>
+			<th>NO.</th>
+			<th>CONTENT</th>
+ 	    	<th>NAME</th>
+ 	      	<th>DATE</th>
+ 	      </tr>
+ 	     </thead>
+ 	     <tbody>
+ 	   <tr :key ="i" v-for ="(review, i) in reviewList" @click ="goToDetail(review.REVIEW_NO)">
+ 	    <td>{{review.REVIEW_NO}}</td>
+ 	    <td>{{review.USER_ID }}</td>
+ 	    <td>{{review.REVIEW_CONTENT }}</td>
+ 	    <td>{{review.CREATE_DATE }}</td>
+
+
+ 	    
+
+ 	   </tr>
+ 	  </tbody>
+ 	 </table>
+ 	</div>
 </template>
 
 <script>
+import axios from "axios";
 export default { 
     data() { 
         return {
-            
+			reviewList: [],
         }
     },
     created() {
-        
+		this.getReviewList();
     },
     methods: {
-        
+		async getReviewList()	{
+ 	  	// let result =	await axios.get(`/api/shopInfo`);
+ 	  	// this.reviewList =	result.data ;
+ 	 	},
+	 	// goToDetail(no)	{
+ 	  	// this.$router.push({	path:"/reviewinfo",	query: {no:no }	});
+ 	 	// },
     }
 }
 </script>
